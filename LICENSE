@@ -1,0 +1,15 @@
+
+### Breakdown of What Was Added:
+
+1. **Creating a Virtual Environment:**
+   - Provides commands for creating and activating the virtual environment (`venv`) for both Windows and macOS/Linux.
+
+2. **Installing Dependencies:**
+   - A step on installing dependencies using `pip install -r requirements.txt`.
+
+3. **Environment Variables:**
+   - Instructions on setting up a `.env` file with essential configuration variables (`SECRET_KEY`, `JWT_SECRET_KEY`, and `SQLALCHEMY_DATABASE_URI`).
+
+4. **Running the Application:**
+   - Describes how to run the application using `python app.py`.
+
