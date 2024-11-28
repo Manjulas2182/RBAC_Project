@@ -1,0 +1,103 @@
+Authentication System with Role-Based Access Control (RBAC)
+
+Project Overview:
+
+This project is a Flask-based authentication system designed with security and role-based access control (RBAC) in mind. Users can register, log in, and access specific routes based on their assigned roles (Admin, Moderator, or User). The system employs secure practices such as JWT-based token management and hashed passwords.
+
+Features:
+
+1.User Registration: Allows users to register with a username, password, and role.
+2.Login: Authenticates users and generates JWT tokens for session management.
+3.Role-Based Access Control: Restricts route access based on user roles.
+4.Token Refresh: Supports renewing JWT tokens for extended sessions.
+5.Error Handling: Custom error responses for 404 and 500 errors.
+6.Security: Implements secure password hashing and token-based authentication.
+
+Setup Instructions:
+1. Clone the Repository
+
+    git clone <repository_url>
+    cd <project_folder>
+
+2. Create and Activate a Virtual Environment
+
+    python -m venv venv
+    source venv/bin/activate  # For Linux/Mac
+    venv\Scripts\activate     # For Windows
+
+3. Install Dependencies
+
+    pip install -r requirements.txt
+
+4. Configure Environment Variables
+
+    Create a .env file in the root directory with the following content:
+
+
+    SECRET_KEY=your-secret-key
+    SQLALCHEMY_DATABASE_URI=sqlite:///my_database.db
+    JWT_SECRET_KEY=your-jwt-secret-key
+
+#To generate the SECRET_KEY and JWT_SECRET_KEY, run the following Python code
+
+    import os
+    print(os.urandom(24))
+-------------------------------------------------------
+API Endpoints:
+
+1. User Registration:
+
+URL: /reg
+Method: POST
+
+Request payload:json
+
+{
+  "username": "example_user",
+  "password": "example_password",
+  "role": "user"
+}
+
+2. User Login
+URL: /login
+Method: POST
+
+
+Request payload:json
+
+{
+  "username": "example_user",
+  "password": "example_password"
+}
+
+3. Protected Routes
+**Admin Route
+URL: /admin
+Method: GET
+Role Required: Admin
+
+**Moderator Route
+URL: /moderator
+Method: GET
+Role Required: Moderator
+
+**User Route
+URL: /user
+Method: GET
+Role Required: User
+
+
+4. Refresh Token
+URL: /refresh
+Method: POST
+
+Security Measures:
+
+* Password Hashing: Passwords are securely hashed using scrypt.
+* JWT Tokens: Authentication is implemented with flask-jwt-extended.
+* Role Validation: Role-based access control restricts route access to authorized users.
+
+Author
+Manjula
+
+A beginner in Flask development, eager to learning new technologies. Committed to building secure and robust backend systems.
